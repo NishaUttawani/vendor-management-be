@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_contracts",
+  "info": {
+    "singularName": "service-contract",
+    "pluralName": "service-contracts",
+    "displayName": "ServiceContract",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "DRAFT",
+        "APPROVED",
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "required": true
+    },
+    "contractId": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid",
+      "required": true
+    },
+    "ownerId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::app-user.app-user"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
